@@ -1,5 +1,4 @@
-let tempot = new Date()
-tempot.setDate(tempot.getDate() + 11);
+let tempot = new Date(2026, 5, 12, 20, 0,0)
 
 function atualizartempo(){
 
