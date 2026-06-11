@@ -19,6 +19,22 @@ let linha6 = document.getElementById("linha6")
 let linha7 = document.getElementById("linha7")
 
 
+//musicas
+
+let musica1 = new Audio ("Home.mp3")
+
+let musica2 = new Audio ("Ludo.mp3")
+
+
+musica2.volume = 0.1
+
+musica1.volume = 0.5
+
+musica1.loop = true
+
+musica2.loop = true
+
+
 
 
 
@@ -43,6 +59,8 @@ Math.random()*3 + 2 + "s"
 //iniciar
 let conteudo = document.getElementById("conteudo")
 function Iniciar(){
+
+    musica1.play()
 
     conteudo.style.opacity = "0"
     conteudo.style.transitionDuration = "2s"
@@ -259,6 +277,25 @@ function Arquivo07(){
 
 function Arquivodeencerramento(){
 
+    let linhas = [linha1, linha2, linha3, linha4, linha5, linha6]
+
+    for(let linha of linhas){
+    linha.style.opacity = "0"
+}
+
+  musica1.pause();
+    musica1.currentTime = 0;
+
+    musica2.currentTime = 0;
+
+    musica2.play()
+    .then(() => {
+        console.log("musica2 tocando");
+    })
+    .catch(erro => {
+        console.log("ERRO:", erro);
+    });
+
     conteudo.style.opacity = "0"
 
     setTimeout(() => {
@@ -273,7 +310,7 @@ function Arquivodeencerramento(){
     setTimeout(() => {
 
         conteudo.innerHTML = `
-        <h2>Constelação desconhecida registrada`
+        <h2>Constelação desconhecida registrada </h2>` 
 
     }, 6000)
 
@@ -282,7 +319,86 @@ function Arquivodeencerramento(){
     setTimeout(() => {
 
         linha2.style.opacity = "1"
+        estrela1.classList.add("ativa")
+        estrela2.classList.add("ativa")
         
-    }, 1000);
+    }, 3000);
+
+    setTimeout(() => {
+        linha3.style.opacity = "1"
+        estrela3.classList.add("ativa")
+    }, 6000)
+
+    setTimeout(() => {
+        linha4.style.opacity = "1"
+        estrela4.classList.add("ativa")
+        
+    }, 9000);
+
+    setTimeout(() => {
+        linha5.style.opacity = "1"
+        estrela5.classList.add("ativa")
+    },12000)
+
+    setTimeout(() => {
+        linha6.style.opacity = "1"
+        estrela6.classList.add("ativa")
+        
+    }, 15000);
+
+    setTimeout(() => {
+
+        linha7.style.opacity = "1"
+        estrela7.classList.add("ativa")
+        
+    }, 18000);
+
+    setTimeout(() => {
+        conteudo.style.opacity = "0"
+        
+    }, 21000);
+
+setTimeout(() => {
+
+    conteudo.style.opacity = "1"
+    conteudo.innerHTML = `
+    <h1>Constelação Destinada</h1> <br> <br> <br>
+
+<p>
+Registro oficialmente concluído.
+</p>`
+}, 25000);
+
+
+setTimeout(() => {
+
+    conteudo.style.opacity = "0"
+    
+}, 29000);
+
+    setTimeout(() => {
+        
+
+
+        conteudo.style.opacity = "1"
+
+        conteudo.innerHTML = ` 
+<p>
+Entre bilhões de estrelas no universo... <br> <br>
+
+Eu ainda escolheria você. <br> <br> <br>
+
+Feliz Dia dos Namorados. ❤️
+</p>`
+        
+    }, 33000);
+
+
+
+    setTimeout(() => {
+
+        conteudo.style.opacity = "0"
+        
+    }, 38000);
 
 }
