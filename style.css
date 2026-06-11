@@ -1,12 +1,11 @@
 @charset "UTF-8";
 
-
 body {
-    display:flex;
-    font-family:Arial, Helvetica, sans-serif;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
     flex-direction: column;
-    justify-content:center;
-    align-items:center;
+    justify-content: center;
+    align-items: center;
     background:
     radial-gradient(
         circle at center,
@@ -18,69 +17,93 @@ body {
         #4b0082,
         #8a2be2
     );
-
- height:100vh;
-    
+    height: 100vh;
+    margin: 0;
 }
 
 #conteiner {
+    display: flex;         
+    flex-direction: column;
+    align-items: center;  
     text-align: center;
-    color:white;
+    color: white;
     text-shadow: 0px 3px 8px rgba(0, 0, 0, 0.612);
 }
 
 #conteiner > h1 {
-    font-size:4rem;
+    font-size: 4rem;
     letter-spacing: 1px;
-    font-weight:800;
+    font-weight: 800;
     text-shadow: 0 0 20px rgba(255,255,255,.2);
-
 }
 
 #conteiner > p {
-    font-size:2rem;
+    font-size: 2rem;
 }
 
-
-
-/*Timer*/
-
-section.timer{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    margin-top:30px;
-
+/* --- FORÇA O TIMER A FICAR LADO A LADO --- */
+div.timer {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .box {
-    height:120px;
-    width:120px;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-
+    height: 120px;
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background: rgba(255,255,255,.05);
     backdrop-filter: blur(10px);
-
     border: 1px solid rgba(255,255,255,.05);
-    border-radius:15px;
+    border-radius: 15px;
 }
 
-.box span{
+.box span {
     font-size: 3.5rem;
     font-weight: 800;
     color: white;
     line-height: 1;
-    box-shadow: 0px 0px 15px rgba(255,255,255,.05)
 }
 
-.box p{
+.box p {
     margin-top: 10px;
     color: rgba(255,255,255,.7);
     text-transform: uppercase;
     letter-spacing: 2px;
-    
+    margin-bottom: 0;
+}
+
+/* --- BOTÃO BONITO E CENTRALIZADO --- */
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 28px;
+
+    background-color: #1a0933;
+    color: #ffffff;
+    border: 2px solid #ffcc00;
+    border-radius: 10px;
+
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    background-color: #ffcc00;
+    color: #1a0933;
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
 }

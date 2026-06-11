@@ -4,43 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timer</title>
-   <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
- <section id="conteiner">
+    <section id="conteiner">
 
-    <h1>Algo vai acontecer em breve...</h1>
+        <h1>Algo vai acontecer em breve...</h1>
+        
+        <p id="timer"></p>
 
-    <p id="timer"></p>
+        <div class="timer">
+            <div class="box">
+                <span id="days">00</span>
+                <p>Dias</p>
+            </div>
 
+            <div class="box">
+                <span id="hours">00</span>
+                <p>Horas</p>
+            </div>
 
+            <div class="box">
+                <span id="minutes">00</span>
+                <p>Min</p>
+            </div>
 
- </section>
+            <div class="box">
+                <span id="seconds">00</span>
+                <p>Seg</p>
+            </div>
+        </div> 
 
- <section class="timer">
+        <button onclick="iniciartransmissao()">✨ Iniciar transmissão</button>
 
-    <div class="box">
-        <span id="days">00</span>
-        <p>Dias</p>
-    </div>
+    </section>
 
-    <div class="box">
-        <span id="hours">00</span>
-        <p>Horas</p>
-    </div>
-
-    <div class="box">
-        <span id="minutes">00</span>
-        <p>Min</p>
-    </div>
-
-    <div class="box">
-        <span id="seconds">00</span>
-        <p>Seg</p>
-    </div>
-    
-
- <script src="Projeto.js"></script>
+    <script src="Projeto.js"></script>
 </body>
 </html>
