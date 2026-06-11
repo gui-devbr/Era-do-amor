@@ -31,7 +31,7 @@ body {
 }
 
 #conteiner > h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     letter-spacing: 1px;
     font-weight: 800;
     text-shadow: 0 0 20px rgba(255,255,255,.2);
@@ -53,8 +53,8 @@ div.timer {
 }
 
 .box {
-    height: 90px;
-    width: 90px;
+    height: 75px;
+    width: 75px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -112,9 +112,9 @@ button:hover {
     }
 
 
-    @media screen and (max-width:400px){
+    @media screen and (max-width:465px){
  h1{
-    font-size:1rem;
+    font-size:0.7rem
  }
         #conteudo{
 font-size:3vw;
