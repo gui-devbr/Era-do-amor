@@ -31,7 +31,7 @@ body {
 }
 
 #conteiner > h1 {
-    font-size: 4rem;
+    font-size: 3rem;
     letter-spacing: 1px;
     font-weight: 800;
     text-shadow: 0 0 20px rgba(255,255,255,.2);
@@ -53,8 +53,8 @@ div.timer {
 }
 
 .box {
-    height: 120px;
-    width: 120px;
+    height: 90px;
+    width: 90px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -66,7 +66,7 @@ div.timer {
 }
 
 .box span {
-    font-size: 3.5rem;
+    font-size: 1.8rem;
     font-weight: 800;
     color: white;
     line-height: 1;
@@ -78,6 +78,7 @@ div.timer {
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 0;
+    font-size:1rem;
 }
 
 /* --- BOTÃO BONITO E CENTRALIZADO --- */
@@ -105,5 +106,50 @@ button:hover {
     background-color: #ffcc00;
     color: #1a0933;
     transform: translateY(-3px);
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4)
+    
+        
+    }
+
+
+    @media screen and (max-width:400px){
+ h1{
+    font-size:1rem;
+ }
+        #conteudo{
+font-size:3vw;
+font-size:2vh;
+        }
+
+        .timer {
+            font-size:1.2rem;
+            padding:5px;
+        }
+
+
+        #days {
+            font-size:1rem;
+            padding:3px;
+        }
+
+
+        #hours {
+            font-size:1rem;
+            padding:3px;
+        }
+
+        #minutes {
+            font-size:1rem;
+            padding:3px;
+        }
+
+        #seconds {
+            font-size:1rem;
+            padding:3px;
+        }
+
+
+        
 }
+
+
