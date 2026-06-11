@@ -122,29 +122,29 @@ font-size:2vh;
         }
 
         .timer {
-            font-size:1.2rem;
+            font-size:1.5rem;
             padding:5px;
         }
 
 
         #days {
-            font-size:1rem;
+            font-size:1.5rem;
             padding:3px;
         }
 
 
         #hours {
-            font-size:1rem;
+            font-size:1.5rem;
             padding:3px;
         }
 
         #minutes {
-            font-size:1rem;
+            font-size:1.5rem;
             padding:3px;
         }
 
         #seconds {
-            font-size:1rem;
+            font-size:1.5rem;
             padding:3px;
         }
 
