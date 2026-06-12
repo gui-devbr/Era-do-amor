@@ -44,7 +44,7 @@ body{
 
     transition: opacity 1s;
 
-    pointer-events: auto;
+    pointer-events: none;
 
     z-index:10;
 }
