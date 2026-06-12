@@ -69,6 +69,15 @@ for(let i = 0; i < 40; i++){
 // FUNÇÕES AUXILIARES
 // =====================================
 
+
+function fadeOut(){
+    conteudo.style.opacity = "0";
+}
+
+function fadeIn(){
+    conteudo.style.opacity = "1";
+}
+
 function trocarTexto(html){
 
     fadeOut();
