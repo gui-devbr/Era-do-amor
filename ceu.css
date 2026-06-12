@@ -29,41 +29,58 @@ body{
 
 /* CONTEÚDO */
 
-#conteudo{
+#conteudo {
     position: absolute;
-
-    top: 70%;
-
+    top: 50%; /* Mudado de 70% para 50% para ficar perfeitamente centralizado */
     left: 50%;
-
     transform: translate(-50%, -50%);
-
     width: 90%;
-
+    max-width: 600px; /* Evita que o texto estique demais em telas grandes de PC */
     text-align: center;
-
     transition: opacity 1s;
-
     pointer-events: none;
-
-    z-index:10;
+    z-index: 10;
+    padding: 20px; /* Margem de segurança interna */
 }
 
 
-h1{
-    font-size:clamp(2rem,5vw,3.5rem);
-    margin-bottom:20px;
+
+
+h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem); /* Máximo reduzido de 3.5rem para 2.5rem */
+    margin-bottom: 15px;
+    line-height: 1.3;
 }
 
-h2{
-    font-size:clamp(1.5rem,4vw,2.5rem);
-    margin-bottom:20px;
+h2 {
+    font-size: clamp(1.4rem, 3vw, 2rem); /* Máximo reduzido de 2.5rem para 2rem */
+    margin-bottom: 15px;
 }
 
-p{
-    opacity:.8;
-    line-height:1.7;
-    font-size:clamp(1rem,2vw,1.2rem);
+p {
+    opacity: .8;
+    line-height: 1.6;
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem); /* Ajustado para leitura leve */
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 24px; /* Levemente menor e mais elegante */
+    border: none;
+    border-radius: 20px;
+    background: white;
+    color: #111827;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+    pointer-events: all;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
 
 button{
@@ -201,130 +218,74 @@ button:hover{
     top:72%;
     left:60%;
 }
+/*=== linhas alinhadas ====*/
 
+/* ESTILIZAÇÃO DO CONTAINER SVG */
+#constelacao-linhas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* Garante que o SVG não trave os cliques nas estrelas */
+    z-index: 4;
+}
 
-/* LINHAS */
-
-.linha{
-    position:absolute;
-
-    height:2px;
-
-    background:white;
-
-    opacity:0;
-
-    transition:1s;
-
-    box-shadow:
-    0 0 5px white,
-    0 0 10px white;
+/* ESTILIZAÇÃO DE CADA LINHA DENTRO DO SVG */
+.linha {
+    stroke: white;
+    stroke-width: 2px;
+    opacity: 0;
+    transition: opacity 1s;
+    /* Efeito de brilho neon nas linhas */
+    filter: drop-shadow(0 0 3px white) drop-shadow(0 0 5px white); 
 }
 
 
-/* DESKTOP */
 
-#linha1{
-    top:22%;
-    left:43%;
-    width:18%;
-    transform:rotate(140deg);
-}
 
-#linha2{
-    top:22%;
-    left:50%;
-    width:18%;
-    transform:rotate(40deg);
-}
 
-#linha3{
-    top:40%;
-    left:31%;
-    width:20%;
-    transform:rotate(125deg);
-}
 
-#linha4{
-    top:40%;
-    left:59%;
-    width:20%;
-    transform:rotate(55deg);
-}
 
-#linha5{
-    top:61%;
-    left:31%;
-    width:18%;
-    transform:rotate(45deg);
-}
 
-#linha6{
-    top:61%;
-    left:59%;
-    width:18%;
-    transform:rotate(135deg);
-}
-
-#linha7{
-    top:72%;
-    left:40%;
-    width:20%;
-}
 
 
 /* ================= MOBILE ================= */
 
 @media (max-width:768px){
-
-    #conteudo{
-        top:75%;
+#conteudo {
+        top: 50%; /* Mantém centralizado também no mobile para não cobrir o botão */
+        width: 85%;
     }
 
-    body{
-        overflow-y:auto;
+    body {
+        overflow: hidden; /* Garante que o celular não ganhe barra de rolagem */
     }
 
-   h1{
-    font-size:5vh;
-}
+    /* No mobile, confiamos no limite mínimo do clamp() que definimos lá em cima, 
+       mas se precisar forçar tamanhos específicos, usamos 'rem' ou 'em' em vez de 'vh' */
+    h1 {
+        font-size: 1.6rem;
+    }
 
-h2{
-    font-size:4vh;
-}
+    h2 {
+        font-size: 1.3rem;
+    }
 
-p{
-    font-size:2.2vh;
-}
+    p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
 
-button{
-    padding:15px 25px;
+    button {
+        padding: 12px 22px;
+        font-size: 0.9rem;
+    }
 
-    border:none;
-
-    border-radius:20px;
-
-    background:white;
-
-    color:#111827;
-
-    font-size:2vh;
-
-    font-weight:bold;
-
-    box-shadow:0 0 15px rgba(255,255,255,.4);
-
-    transition:.5s;
-}
-
-button:hover{
-    transform:scale(1.05);
-}
-
-    .estrela{
+.estrela{
         width:8px;
         height:8px;
-    }
+}
 
    #estrela1{
 top:12%;
@@ -361,56 +322,6 @@ top:67%;
 left:58%;
 }
 
-
-    /* linhas menores */
-
-   #linha1{
-top:18%;
-left:43%;
-width:90px;
-transform:rotate(135deg);
-}
-
-#linha2{
-top:18%;
-left:50%;
-width:90px;
-transform:rotate(45deg);
-}
-
-#linha3{
-top:37%;
-left:31%;
-width:100px;
-transform:rotate(120deg);
-}
-
-#linha4{
-top:37%;
-left:59%;
-width:100px;
-transform:rotate(60deg);
-}
-
-#linha5{
-top:57%;
-left:34%;
-width:80px;
-transform:rotate(45deg);
-}
-
-#linha6{
-top:57%;
-left:56%;
-width:80px;
-transform:rotate(135deg);
-}
-
-#linha7{
-top:69%;
-left:44%;
-width:12%;
-}
 
 }
 

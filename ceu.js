@@ -750,3 +750,39 @@ conteudo.innerHTML =`
     }, 40000);
 
 }
+
+// Função para desenhar a linha exatamente entre duas estrelas
+function ajustarLinha(idLinha, idEstrelaA, idEstrelaB) {
+    const linha = document.getElementById(idLinha);
+    const estA = document.getElementById(idEstrelaA).getBoundingClientRect();
+    const estB = document.getElementById(idEstrelaB).getBoundingClientRect();
+
+    // Encontra o centro exato de cada estrela
+    const x1 = estA.left + estA.width / 2;
+    const y1 = estA.top + estA.height / 2;
+    const x2 = estB.left + estB.width / 2;
+    const y2 = estB.top + estB.height / 2;
+
+    // Aplica as coordenadas diretamente nos eixos do SVG
+    linha.setAttribute('x1', x1);
+    linha.setAttribute('y1', y1);
+    linha.setAttribute('x2', x2);
+    linha.setAttribute('y2', y2);
+}
+
+// Mapeamento de conexões (Qual linha liga qual estrela)
+function atualizarTodasAsLinhas() {
+    ajustarLinha('linha1', 'estrela1', 'estrela2'); // Linha 1 liga Estrela 1 à 2
+    ajustarLinha('linha2', 'estrela1', 'estrela3'); // Linha 2 liga Estrela 1 à 3
+    ajustarLinha('linha3', 'estrela2', 'estrela4'); // Linha 3 liga Estrela 2 à 4
+    ajustarLinha('linha4', 'estrela3', 'estrela5'); // Linha 4 liga Estrela 3 à 5
+    ajustarLinha('linha5', 'estrela4', 'estrela6'); // Linha 5 liga Estrela 4 à 6
+    ajustarLinha('linha6', 'estrela5', 'estrela7'); // Linha 6 liga Estrela 5 à 7
+    ajustarLinha('linha7', 'estrela6', 'estrela7'); // Linha 7 fecha a base entre 6 e 7
+}
+
+// Executa o cálculo assim que a página carrega
+window.addEventListener('load', atualizarTodasAsLinhas);
+
+// Recalcula automaticamente se a pessoa girar o celular ou mudar o tamanho da janela!
+window.addEventListener('resize', atualizarTodasAsLinhas);
