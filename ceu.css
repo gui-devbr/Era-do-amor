@@ -42,10 +42,6 @@ body{
 
     text-align: center;
 
-    z-index: 10;
-
-    transition: 1s;
-
     transition: opacity 1s;
 
     pointer-events: auto;

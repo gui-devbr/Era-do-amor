@@ -625,7 +625,7 @@ function Arquivodeencerramento() {
 
         mostrarLinha(1);
         ativarEstrela(2);
-conteudo.innerHTML `
+conteudo.innerHTML =`
         <h2>Analisando sinais...</h2>`
 
     }, 6000);
