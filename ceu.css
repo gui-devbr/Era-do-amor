@@ -15,7 +15,7 @@ body {
     color:white;
     font-family:Arial, Helvetica, sans-serif;
 
-    overflow:hidden;
+    overflow-x:hidden;
 }
 
 #conteudo {
@@ -220,3 +220,30 @@ button:hover{
     box-shadow:0px 0px 10px white;
 }
 
+
+@media (max-width:768px){
+
+    h1{
+        font-size:6vh;
+    }
+
+    h2{
+        font-size:4vh;
+    }
+
+    p{
+        font-size:3vh;
+        line-height:1.6;
+    }
+
+
+    #conteudo{
+        width:90%;
+        margin:auto;
+    }
+
+    .estrela {
+        height:1px
+
+    }
+}

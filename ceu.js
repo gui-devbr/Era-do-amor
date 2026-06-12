@@ -259,6 +259,15 @@ linha6.style.opacity = 1
 
 
 function Arquivo07(){
+    linha1.style.opacity = "0"
+    linha2.style.opacity = "0"
+    linha3.style.opacity = "0"
+    linha4.style.opacity = "0"
+    linha5.style.opacity = "0"
+    linha6.style.opacity = "0"
+    linha7.style.opacity = "0"
+
+    
     estrela7.classList.remove("ativa")
 
     conteudo.innerHTML = ` 
@@ -266,7 +275,29 @@ function Arquivo07(){
 
     
 
-<h1>ARQUIVO #007</h1> <h2>RELATÓRIO FINAL</h2> <p> Departamento de Observação<br><br> Caso #07<br><br> Sete ciclos terrestres se passaram desde o primeiro sinal detectado.<br><br> Inúmeras análises foram realizadas.<br><br> Os cálculos foram refeitos inúmeras vezes.<br><br> Mas nenhuma explicação científica foi capaz de explicar completamente o fenômeno observado.<br><br> Mesmo diante das incontáveis possibilidades do universo, as entidades M e A continuaram escolhendo uma à outra.<br><br> Por esse motivo, o Caso #07 é oficialmente encerrado.<br><br> Classificação final:<br><br> Fenômeno extremamente raro.<br><br> Observação final dos pesquisadores:<br><br> Talvez algumas estrelas realmente estejam destinadas a se encontrar.<br><br> Fim da transmissão.<br><br> ...<br><br> Assinado:<br><br> Departamento de Observação Intergaláctica.<br><br> E por um garoto que te ama há seis meses. ❤️👽⭐<br><br> </p>
+<h2>RELATÓRIO FINAL</h2>
+
+<p>Departamento de Observação</p>
+
+<p>Caso #07</p>
+
+<p>
+Sete ciclos terrestres se passaram desde o primeiro sinal detectado.
+</p>
+
+<p>
+Inúmeras análises foram realizadas.
+</p>
+
+<p>
+Os cálculos foram refeitos inúmeras vezes.
+</p>
+
+<p>
+Mas nenhuma explicação científica foi capaz de explicar completamente o fenômeno observado.
+</p>
+
+
 
 
 <button onclick="Arquivodeencerramento()">Registrar constelação</button>
