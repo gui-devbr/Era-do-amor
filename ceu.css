@@ -16,28 +16,38 @@ body{
 }
 
 #ceu{
-    position:relative;
-    width:100vw;
-    height:100vh;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transform: translateY(-12%);
 }
 
 
 /* CONTEÚDO */
 
 #conteudo{
-    position:relative;
-    z-index:10;
-    text-align:center;
-    width:min(90%,700px);
+    position: absolute;
 
-    transition:2s;
+    top: 68%;
 
-    pointer-events:none;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 90%;
+
+    text-align: center;
+
+    z-index: 10;
+
+    transition: 2s;
 }
+
 
 h1{
     font-size:clamp(2rem,5vw,3.5rem);
@@ -93,8 +103,8 @@ button:hover{
     border-radius:50%;
 
     box-shadow:
-    0 0 10px white,
-    0 0 20px white;
+    0 0 5px white,
+    0 0 10px white;
 
     cursor:pointer;
 
@@ -268,17 +278,41 @@ button:hover{
         overflow-y:auto;
     }
 
-    h1{
-        font-size:2rem;
-    }
+   h1{
+    font-size:5vh;
+}
 
-    h2{
-        font-size:1.5rem;
-    }
+h2{
+    font-size:4vh;
+}
 
-    p{
-        font-size:1rem;
-    }
+p{
+    font-size:2.2vh;
+}
+
+button{
+    padding:15px 25px;
+
+    border:none;
+
+    border-radius:20px;
+
+    background:white;
+
+    color:#111827;
+
+    font-size:2vh;
+
+    font-weight:bold;
+
+    box-shadow:0 0 15px rgba(255,255,255,.4);
+
+    transition:.5s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
 
     .estrela{
         width:8px;
