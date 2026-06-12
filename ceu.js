@@ -1,435 +1,773 @@
-//estrelas
-let ceu = document.getElementById("ceu")
-let estrela1 = document.getElementById("estrela1")
-let estrela2 = document.getElementById("estrela2")
-let estrela3 = document.getElementById("estrela3")
-let estrela4 = document.getElementById("estrela4")
-let estrela5 = document.getElementById("estrela5")
-let estrela6 = document.getElementById("estrela6")
-let estrela7 = document.getElementById("estrela7")
 
-//linhas
+// =====================================
+// ESTRELAS PRINCIPAIS
+// =====================================
 
-let linha1 = document.getElementById("linha1")
-let linha2 = document.getElementById("linha2")
-let linha3 = document.getElementById("linha3")
-let linha4 = document.getElementById("linha4")
-let linha5 = document.getElementById("linha5")
-let linha6 = document.getElementById("linha6")
-let linha7 = document.getElementById("linha7")
+const ceu = document.getElementById("ceu");
+const conteudo = document.getElementById("conteudo");
+
+const estrelas = [
+    document.getElementById("estrela1"),
+    document.getElementById("estrela2"),
+    document.getElementById("estrela3"),
+    document.getElementById("estrela4"),
+    document.getElementById("estrela5"),
+    document.getElementById("estrela6"),
+    document.getElementById("estrela7")
+];
+
+// =====================================
+// LINHAS
+// =====================================
+
+const linhas = [
+    document.getElementById("linha1"),
+    document.getElementById("linha2"),
+    document.getElementById("linha3"),
+    document.getElementById("linha4"),
+    document.getElementById("linha5"),
+    document.getElementById("linha6"),
+    document.getElementById("linha7")
+];
+
+// =====================================
+// MÚSICAS
+// =====================================
+
+const musica1 = new Audio("Home.mp3");
+const musica2 = new Audio("Ludo.mp3");
+
+musica1.volume = 0.5;
+musica2.volume = 0.1;
+
+musica1.loop = true;
+musica2.loop = true;
 
 
-//musicas
+// =====================================
+// ESTRELAS DE FUNDO
+// =====================================
 
-let musica1 = new Audio ("Home.mp3")
+for(let i = 0; i < 40; i++){
 
-let musica2 = new Audio ("Ludo.mp3")
+    let estrela = document.createElement("div");
 
+    estrela.classList.add("estrelas-pequenas");
 
-musica2.volume = 0.1
+    estrela.style.top = Math.random()*100 + "%";
 
-musica1.volume = 0.5
-
-musica1.loop = true
-
-musica2.loop = true
-
-
-
-
-
-for (let i = 1; i < 30; i++){
-    let estrela = document.createElement("div")
-
-
-    estrela.classList.add("estrelas-pequenas")
-
-
-    estrela.style.top = Math.random()*100 + "%"
-
-    estrela.style.left = Math.random() *100 + "%"
+    estrela.style.left = Math.random()*100 + "%";
 
     estrela.style.animationDuration =
-Math.random()*3 + 2 + "s"
+        Math.random()*3 + 2 + "s";
 
-    ceu.appendChild(estrela)
+    ceu.appendChild(estrela);
 }
 
 
-//iniciar
-let conteudo = document.getElementById("conteudo")
+// =====================================
+// FUNÇÕES AUXILIARES
+// =====================================
+
+function fadeOut(){
+
+    conteudo.style.opacity = "0";
+
+}
+
+function fadeIn(){
+
+    conteudo.style.opacity = "1";
+
+}
+
+function ativarEstrela(numero){
+
+    estrelas[numero].classList.add("ativa");
+
+}
+
+function desativarEstrela(numero){
+
+    estrelas[numero].classList.remove("ativa");
+
+}
+
+function mostrarLinha(numero){
+
+    linhas[numero].style.opacity = "1";
+
+}
+
+function esconderLinhas(){
+
+    linhas.forEach(linha => {
+
+        linha.style.opacity = "0";
+
+    });
+
+}
+
+function apagarEstrelas(){
+
+    estrelas.forEach(estrela => {
+
+        estrela.classList.remove("ativa");
+
+    });
+
+}
+
+
+// =====================================
+// INICIAR
+// =====================================
+
 function Iniciar(){
 
-    musica1.play()
+    musica1.play();
 
-    conteudo.style.opacity = "0"
-    conteudo.style.transitionDuration = "2s"
+    fadeOut();
 
-    setTimeout(function(){
+    setTimeout(() => {
 
         conteudo.innerHTML = `
-        <h1 style="box-shadow:0px 0px 5px rgba(0, 0, 0, 0.2)"> Departamento de Observaçao Intergalactica </h1>
 
-        <p style="color:yellow">registro #07</p>
-        
-        <p>
-        Dois seres desconhecidos foram detectados ha sete meses
+        <h1>
+            Departamento de Observação Intergaláctica
+        </h1>
+
+        <p style="color:yellow">
+            Registro #07
         </p>
-    `
-        
-        conteudo.style.opacity = "1"
-    }, 3000);
+
+        <p>
+            Dois seres desconhecidos foram detectados há sete meses.
+        </p>
+
+        `;
+
+        fadeIn();
+
+    },2000);
 
 
-    estrela1.classList.add("ativa")
-
+    ativarEstrela(0);
 }
 
 
+// =====================================
+// ARQUIVO #001
+// =====================================
 
+function Arquivo01(){
 
+    desativarEstrela(0);
 
-function Arquivo01() {
-    estrela1.classList.remove("ativa")
+    fadeOut();
 
-    conteudo.style.opacity = "0"
-
-    setTimeout(function(){
+    setTimeout(() => {
 
         conteudo.innerHTML = `
+
         <h1>Arquivo #001</h1>
-        
-        <p>Primeiro contato estabelecido <br><br>
-        
-        A especie M apresentou compartamento "amigavel"<br>
 
-        A especie A demontrou interesse incomum <br> <br>
+        <p>
 
-        compatibilidade detectada
-        
-        </p> 
-        `
+        Primeiro contato estabelecido.
 
-        conteudo.style.opacity = "1"
+        <br><br>
 
-    }, 1000)
+        A espécie M apresentou comportamento amigável.
 
-    estrela2.classList.add("ativa")
-    linha1.style.opacity = 1
+        <br><br>
+
+        A espécie A demonstrou interesse incomum.
+
+        <br><br>
+
+        Compatibilidade detectada.
+
+        </p>
+
+        `;
+
+        fadeIn();
+
+    },1000);
+
+    mostrarLinha(0);
+
+    ativarEstrela(1);
 
 }
 
-function Arquivo02() {
 
-    estrela2.classList.remove("ativa")
+// =====================================
+// ARQUIVO #002
+// =====================================
 
-    estrela3.classList.add("ativa")
+function Arquivo02(){
 
-    conteudo.innerHTML = `
-    <h1>Arquivo #002 </h1>
+    desativarEstrela(1);
 
-<p>
-    Comunicação estabelecida. <br> <br>
+    fadeOut();
 
-Os dois espécimes desenvolveram uma linguagem
-própria composta por brincadeiras, histórias
-estranhas e teorias envolvendo alienígenas. <br> <br>
+    setTimeout(() => {
 
-Pesquisadores ainda não compreenderam
-como ambos conseguem se entender. <br> <br>
+        conteudo.innerHTML = `
 
-Classificação do fenômeno:
+        <h1>Arquivo #002</h1>
 
-Curiosamente adorável. </p>
-    `
-    linha2.style.opacity = 1
+        <p>
+
+        Comunicação estabelecida.
+
+        <br><br>
+
+        Os dois espécimes desenvolveram uma linguagem própria
+        composta por brincadeiras, histórias estranhas
+        e teorias envolvendo alienígenas.
+
+        <br><br>
+
+        Pesquisadores ainda não compreenderam como
+        ambos conseguem se entender.
+
+        <br><br>
+
+        Classificação do fenômeno:
+
+        <br><br>
+
+        Curiosamente adorável.
+
+        </p>
+
+        `;
+
+        fadeIn();
+
+    },1000);
+
+    mostrarLinha(1);
+
+    ativarEstrela(2);
+
 }
 
-function Arquivo03() {
-    estrela3.classList.remove("ativa")
-    estrela4.classList.add("ativa")
 
-    conteudo.innerHTML = `
-    <h1> Arquivo #003 </h1>
+// =====================================
+// ARQUIVO #003
+// =====================================
 
-<p>
-Durante as investigações, foi observado que
-os espécimes M e A começaram a desenvolver
-teorias e missões particulares. <br> <br>
+function Arquivo03(){
 
-Ambos passaram a agir como investigadores
-de fenômenos desconhecidos e frequentemente
-se identificavam como seres de origem não terrestre. <br> <br>
+    desativarEstrela(2);
 
-Os pesquisadores consideraram interromper
-a análise, mas decidiram continuar por pura curiosidade. <br> <br>
+    fadeOut();
 
-Observação adicional:
+    setTimeout(() => {
 
-Os dois parecem se divertir em qualquer galáxia. </p>` 
-linha3.style.opacity = 1
+        conteudo.innerHTML = `
+
+        <h1>Arquivo #003</h1>
+
+        <p>
+
+        Durante as investigações, foi observado que
+        os espécimes M e A começaram a desenvolver
+        teorias e missões particulares.
+
+        <br><br>
+
+        Ambos passaram a agir como investigadores
+        de fenômenos desconhecidos e frequentemente
+        se identificavam como seres de origem não terrestre.
+
+        <br><br>
+
+        Os pesquisadores decidiram continuar a análise
+        por pura curiosidade.
+
+        <br><br>
+
+        Observação adicional:
+
+        <br><br>
+
+        Os dois parecem se divertir em qualquer galáxia.
+
+        </p>
+
+        `;
+
+        fadeIn();
+
+    },1000);
+
+    mostrarLinha(2);
+
+    ativarEstrela(3);
+
 }
 
-function Arquivo04() {
-    estrela4.classList.remove("ativa")
-    estrela5.classList.add("ativa")
 
-    conteudo.innerHTML = `
-    <h1>ARQUIVO #004 </h1>
-<p>
-Evento de Classe Ω registrado. <br> <br>
+// =====================================
+// ARQUIVO #004
+// =====================================
 
-Após um período prolongado de comunicação,
-as entidades M e A realizaram o Ritual de
-Sincronização Afetiva Mútua. <br> <br>
+function Arquivo04(){
 
-Desde então, ambas passaram a se reconhecer
-oficialmente como companheiras de jornada. <br> <br>
+    desativarEstrela(3);
 
-Consequências observadas: <br>
+    fadeOut();
 
-• Aumento significativo na troca de carinho. <br>
-• Frequência elevada de saudades. <br>
-• Níveis perigosos de fofura. <br> <br>
+    setTimeout(() => {
 
-Os cientistas ainda estudam o fenômeno.
-</p>`
-linha4.style.opacity = 1
+        conteudo.innerHTML = `
+
+        <h1>Arquivo #004</h1>
+
+        <p>
+
+        Evento de Classe Ω registrado.
+
+        <br><br>
+
+        Após um período prolongado de comunicação,
+        as entidades M e A realizaram o Ritual de
+        Sincronização Afetiva Mútua.
+
+        <br><br>
+
+        Desde então, ambas passaram a se reconhecer
+        oficialmente como companheiras de jornada.
+
+        <br><br>
+
+        Consequências observadas:
+
+        <br><br>
+
+        • Aumento significativo na troca de carinho.
+
+        <br>
+
+        • Frequência elevada de saudades.
+
+        <br>
+
+        • Níveis perigosos de fofura.
+
+        </p>
+
+        `;
+
+        fadeIn();
+
+    },1000);
+
+    mostrarLinha(3);
+
+    ativarEstrela(4);
+
 }
 
-function Arquivo05() {
-    estrela5.classList.remove("ativa")
-    estrela6.classList.add("ativa")
 
-    conteudo.innerHTML = `
-    <h1>ARQUIVO #005 </h1>
-<p>
-Registro raro identificado. <br> <br>
+// =====================================
+// ARQUIVO #005
+// =====================================
 
-Os cientistas responsáveis pela pesquisa
-ainda não conseguiram explicar como duas entidades
-tão diferentes conseguiram desenvolver uma conexão
-tão singular. <br> <br>
+function Arquivo05(){
 
-A probabilidade estatística desse encontro
-era extremamente baixa. <br> <br>
+    desativarEstrela(4);
 
-No entanto... <br> <br>
+    fadeOut();
 
-Contra todas as previsões conhecidas,
-os espécimes M e A continuaram escolhendo
-permanecer lado a lado. <br> <br>
+    setTimeout(() => {
 
-Observação dos pesquisadores:
+        conteudo.innerHTML = `
 
-Talvez o universo goste de criar coincidências. </p>`
-linha5.style.opacity = 1
+        <h1>Arquivo #005</h1>
+
+        <p>
+
+        Registro raro identificado.
+
+        <br><br>
+
+        Os cientistas responsáveis pela pesquisa
+        ainda não conseguiram explicar como duas entidades
+        tão diferentes conseguiram desenvolver
+        uma conexão tão singular.
+
+        <br><br>
+
+        A probabilidade estatística desse encontro
+        era extremamente baixa.
+
+        <br><br>
+
+        No entanto...
+
+        <br><br>
+
+        Contra todas as previsões conhecidas,
+        os espécimes M e A continuaram escolhendo
+        permanecer lado a lado.
+
+        <br><br>
+
+        Talvez o universo goste de criar coincidências.
+
+        </p>
+
+        `;
+
+        fadeIn();
+
+    },1000);
+
+    mostrarLinha(4);
+
+    ativarEstrela(5);
+
 }
+
+
+// =====================================
+// ARQUIVO #006
+// =====================================
 
 function Arquivo06(){
-estrela6.classList.remove("ativa")
-estrela7.classList.add("ativa")
 
-conteudo.innerHTML = `
-<h1>ARQUIVO #006 </h1>
+    desativarEstrela(5);
 
+    fadeOut();
 
-<p>
-Sete ciclos terrestres completos foram registrados. <br> <br>
+    setTimeout(() => {
 
-Durante esse período, as entidades M e A
-continuaram compartilhando transmissões diárias,
-momentos felizes e incontáveis memórias. <br> <br>
+        conteudo.innerHTML = `
 
-Apesar do tempo decorrido,
-nenhum sinal de enfraquecimento foi detectado. <br> <br>
+        <h1>Arquivo #006</h1>
 
-Pelo contrário. <br> <br>
+        <p>
 
-Os níveis de carinho, confiança e felicidade
-permanecem em crescimento constante. <br> <br>
+        Sete ciclos terrestres completos foram registrados.
 
-Os pesquisadores admitem: <br> <br>
+        <br><br>
 
-O fenômeno observado superou todas as expectativas.
+        Durante esse período, as entidades M e A
+        continuaram compartilhando transmissões diárias,
+        momentos felizes e incontáveis memórias.
 
-Preparando relatório final... </p>`
-linha6.style.opacity = 1
+        <br><br>
+
+        Nenhum sinal de enfraquecimento foi detectado.
+
+        <br><br>
+
+        Pelo contrário.
+
+        <br><br>
+
+        Os níveis de carinho, confiança e felicidade
+        permanecem em crescimento constante.
+
+        <br><br>
+
+        Preparando relatório final...
+
+        </p>
+
+        `;
+
+        fadeIn();
+
+    },1000);
+
+    mostrarLinha(5);
+
+    ativarEstrela(6);
+
 }
 
+
+
+// =====================================
+// ARQUIVO #007
+// =====================================
 
 function Arquivo07(){
-    linha1.style.opacity = "0"
-    linha2.style.opacity = "0"
-    linha3.style.opacity = "0"
-    linha4.style.opacity = "0"
-    linha5.style.opacity = "0"
-    linha6.style.opacity = "0"
-    linha7.style.opacity = "0"
 
-    
-    estrela7.classList.remove("ativa")
+    desativarEstrela(6);
 
-    conteudo.innerHTML = ` 
+    fadeOut();
 
+    setTimeout(() => {
 
-    
+        conteudo.innerHTML = `
 
-<h2>RELATÓRIO FINAL</h2>
+        <h1>ARQUIVO #007</h1>
 
-<p>Departamento de Observação</p>
+        <h2>RELATÓRIO FINAL</h2>
 
-<p>Caso #07</p>
+        <p>
 
-<p>
-Sete ciclos terrestres se passaram desde o primeiro sinal detectado.
-</p>
+        Sete ciclos terrestres se passaram desde o primeiro sinal detectado.
 
-<p>
-Inúmeras análises foram realizadas.
-</p>
+        <br><br>
 
-<p>
-Os cálculos foram refeitos inúmeras vezes.
-</p>
+        Inúmeras análises foram realizadas.
 
-<p>
-Mas nenhuma explicação científica foi capaz de explicar completamente o fenômeno observado.
-</p>
+        <br><br>
 
+        Os cálculos foram refeitos inúmeras vezes.
 
+        <br><br>
 
+        Mas nenhuma explicação científica foi capaz de explicar completamente o fenômeno observado.
 
-<button onclick="Arquivodeencerramento()">Registrar constelação</button>
-`
-   
+        <br><br>
+
+        Mesmo diante das incontáveis possibilidades do universo,
+        as entidades M e A continuaram escolhendo uma à outra.
+
+        <br><br>
+
+        Classificação final:
+
+        <br><br>
+
+        Fenômeno extremamente raro.
+
+        <br><br>
+
+        Talvez algumas estrelas realmente estejam destinadas a se encontrar.
+
+        </p>
+
+        <button onclick="Arquivodeencerramento()">
+
+        Registrar Constelação
+
+        </button>
+
+        `;
+
+        fadeIn();
+
+    },1000);
 
 }
+
+
+// =====================================
+// ENCERRAMENTO
+// =====================================
 
 function Arquivodeencerramento(){
 
-    let linhas = [linha1, linha2, linha3, linha4, linha5, linha6]
+    esconderLinhas();
 
-    for(let linha of linhas){
-    linha.style.opacity = "0"
-}
+    apagarEstrelas();
 
-  musica1.pause();
+    musica1.pause();
     musica1.currentTime = 0;
 
     musica2.currentTime = 0;
+    musica2.play();
 
-    musica2.play()
-    .then(() => {
-        console.log("musica2 tocando");
-    })
-    .catch(erro => {
-        console.log("ERRO:", erro);
-    });
+    fadeOut();
 
-    conteudo.style.opacity = "0"
 
-    setTimeout(() => {
-        
-    }, 2000);
-
-    conteudo.innerHTML = `
-    <h2>Sinal final detectado...<h2>`
-
-    conteudo.style.opacity = "1"
+    // SINAL FINAL
 
     setTimeout(() => {
 
         conteudo.innerHTML = `
-        <h2>Constelação desconhecida registrada </h2>` 
 
-    }, 6000)
+        <h2>Sinal final detectado...</h2>
 
-    linha1.style.opacity = "1"
+        `;
 
-    setTimeout(() => {
+        fadeIn();
 
-        linha2.style.opacity = "1"
-        estrela1.classList.add("ativa")
-        estrela2.classList.add("ativa")
-        
-    }, 3000);
+    },2000);
 
-    setTimeout(() => {
-        linha3.style.opacity = "1"
-        estrela3.classList.add("ativa")
-    }, 6000)
 
-    setTimeout(() => {
-        linha4.style.opacity = "1"
-        estrela4.classList.add("ativa")
-        
-    }, 9000);
 
-    setTimeout(() => {
-        linha5.style.opacity = "1"
-        estrela5.classList.add("ativa")
-    },12000)
-
-    setTimeout(() => {
-        linha6.style.opacity = "1"
-        estrela6.classList.add("ativa")
-        
-    }, 15000);
+    // CONSTELAÇÃO DESCONHECIDA
 
     setTimeout(() => {
 
-        linha7.style.opacity = "1"
-        estrela7.classList.add("ativa")
-        
-    }, 18000);
+        conteudo.innerHTML = `
+
+        <h2>Constelação desconhecida registrada...</h2>
+
+        `;
+
+    },6000);
+
+
+
+    // MONTANDO A CONSTELAÇÃO
 
     setTimeout(() => {
-        conteudo.style.opacity = "0"
-        
-    }, 21000);
 
-setTimeout(() => {
+        mostrarLinha(0);
 
-    conteudo.style.opacity = "1"
-    conteudo.innerHTML = `
-    <h1>Constelação Destinada</h1> <br> <br> <br>
+        ativarEstrela(0);
+        ativarEstrela(1);
 
-<p>
-Registro oficialmente concluído.
-</p>`
-}, 25000);
-
-
-setTimeout(() => {
-
-    conteudo.style.opacity = "0"
-    
-}, 29000);
-
-    setTimeout(() => {
-        
-
-
-        conteudo.style.opacity = "1"
-
-        conteudo.innerHTML = ` 
-<p>
-Entre bilhões de estrelas no universo... <br> <br>
-
-Eu ainda escolheria você. <br> <br> <br>
-
-Feliz Dia dos Namorados. ❤️
-</p>`
-        
-    }, 33000);
+    },3000);
 
 
 
     setTimeout(() => {
 
-        conteudo.style.opacity = "0"
-        
-    }, 38000);
+        mostrarLinha(1);
+
+        ativarEstrela(2);
+
+    },6000);
+
+
+
+    setTimeout(() => {
+
+        mostrarLinha(2);
+
+        ativarEstrela(3);
+
+    },9000);
+
+
+
+    setTimeout(() => {
+
+        mostrarLinha(3);
+
+        ativarEstrela(4);
+
+    },12000);
+
+
+
+    setTimeout(() => {
+
+        mostrarLinha(4);
+
+        ativarEstrela(5);
+
+    },15000);
+
+
+
+    setTimeout(() => {
+
+        mostrarLinha(5);
+
+        mostrarLinha(6);
+
+        ativarEstrela(6);
+
+    },18000);
+
+
+
+    // TODAS BRILHAM
+
+    setTimeout(() => {
+
+        estrelas.forEach(estrela => {
+
+            estrela.classList.add("ativa");
+
+        });
+
+    },19000);
+
+
+
+    // CONSTELAÇÃO DESTINADA
+
+    setTimeout(() => {
+
+        fadeOut();
+
+    },22000);
+
+
+
+    setTimeout(() => {
+
+        conteudo.innerHTML = `
+
+        <h1>Constelação Destinada</h1>
+
+        <p>
+
+        Registro oficialmente concluído.
+
+        </p>
+
+        `;
+
+        fadeIn();
+
+    },24000);
+
+
+
+    // FINAL
+
+    setTimeout(() => {
+
+        fadeOut();
+
+    },29000);
+
+
+
+    setTimeout(() => {
+
+        conteudo.innerHTML = `
+
+        <h1>❤️</h1>
+
+        <p>
+
+        Entre bilhões de estrelas no universo...
+
+        <br><br>
+
+        Eu ainda escolheria você.
+
+        <br><br><br>
+
+        Feliz Dia dos Namorados.
+
+        </p>
+
+        `;
+
+        fadeIn();
+
+    },31000);
+
+
+
+    // DESAPARECE
+
+    setTimeout(() => {
+
+        fadeOut();
+
+    },38000);
 
 }
+
+
