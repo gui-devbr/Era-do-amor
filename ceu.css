@@ -407,3 +407,11 @@ width:12%;
 
 }
 
+.final{
+    animation:pulsar 1s infinite;
+
+    box-shadow:
+    0 0 10px white,
+    0 0 20px white,
+    0 0 40px white;
+}
