@@ -15,16 +15,15 @@ body{
     font-family:Arial, Helvetica, sans-serif;
 }
 
+
 #ceu{
-    position: relative;
-    width: 100vw;
-    height: 100vh;
+    position:relative;
+    width:100vw;
+    height:100vh;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    transform: translateY(-12%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 
@@ -33,7 +32,7 @@ body{
 #conteudo{
     position: absolute;
 
-    top: 68%;
+    top: 70%;
 
     left: 50%;
 
@@ -49,7 +48,9 @@ body{
 
     transition: opacity 1s;
 
-    pointer-events: none;
+    pointer-events: auto;
+
+    z-index:10;
 }
 
 
@@ -113,6 +114,8 @@ button:hover{
     cursor:pointer;
 
     transition:.5s;
+
+    z-index:5;
 }
 
 .estrela:hover{
@@ -277,6 +280,10 @@ button:hover{
 /* ================= MOBILE ================= */
 
 @media (max-width:768px){
+
+    #conteudo{
+        top:75%;
+    }
 
     body{
         overflow-y:auto;
