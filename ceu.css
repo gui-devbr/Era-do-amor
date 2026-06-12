@@ -285,6 +285,57 @@ button:hover{
         height:6px;
     }
 
+    @media (max-width:768px){
+
+    .estrela{
+        width:6px;
+        height:6px;
+    }
+
+    /* 1 */
+    #estrela1{
+        top:18%;
+        left:50%;
+    }
+
+    /* 2 */
+    #estrela2{
+        top:30%;
+        left:35%;
+    }
+
+    /* 3 */
+    #estrela3{
+        top:30%;
+        left:65%;
+    }
+
+    /* 4 */
+    #estrela4{
+        top:48%;
+        left:20%;
+    }
+
+    /* 5 */
+    #estrela5{
+        top:48%;
+        left:80%;
+    }
+
+    /* 6 */
+    #estrela6{
+        top:70%;
+        left:38%;
+    }
+
+    /* 7 */
+    #estrela7{
+        top:70%;
+        left:62%;
+    }
+
+}
+
     .linha{
         height:1px;
     }
