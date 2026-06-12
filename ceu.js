@@ -608,7 +608,7 @@ function Arquivodeencerramento() {
         ativarEstrela(0);
         ativarEstrela(1);
 
-    }, 3000);
+    }, 10000);
 
 
     // Constelação desconhecida
@@ -618,7 +618,7 @@ function Arquivodeencerramento() {
         <h2>Constelação desconhecida registrada...</h2>
         `);
 
-    }, 6000);
+    }, 15000);
 
 
     setTimeout(() => {
@@ -628,7 +628,7 @@ function Arquivodeencerramento() {
 conteudo.innerHTML =`
         <h2>Analisando sinais...</h2>`
 
-    }, 6000);
+    }, 20000);
 
 
     setTimeout(() => {
@@ -636,7 +636,7 @@ conteudo.innerHTML =`
         mostrarLinha(2);
         ativarEstrela(3);
 
-    }, 9000);
+    }, 23000);
 
 
     setTimeout(() => {
@@ -644,7 +644,7 @@ conteudo.innerHTML =`
         mostrarLinha(3);
         ativarEstrela(4);
 
-    }, 12000);
+    }, 26000);
 
 
     setTimeout(() => {
@@ -652,7 +652,7 @@ conteudo.innerHTML =`
         mostrarLinha(4);
         ativarEstrela(5);
 
-    }, 15000);
+    }, 30000);
 
 
     setTimeout(() => {
@@ -662,7 +662,7 @@ conteudo.innerHTML =`
 
         ativarEstrela(6);
 
-    }, 18000);
+    }, 35000);
 
 
     // Céu muda de cor
@@ -671,7 +671,7 @@ conteudo.innerHTML =`
         document.body.style.background =
         "radial-gradient(circle at center, #1e3a8a, #030712)";
 
-    }, 18000);
+    }, 35000);
 
 
     // Todas piscando
@@ -683,7 +683,7 @@ conteudo.innerHTML =`
 
         });
 
-    }, 19000);
+    }, 38000);
 
 
     // Efeito especial final
@@ -695,7 +695,7 @@ conteudo.innerHTML =`
 
         });
 
-    }, 20000);
+    }, 41000);
 
 
     // Constelação Destinada
@@ -711,7 +711,7 @@ conteudo.innerHTML =`
 
         `);
 
-    }, 24000);
+    }, 42000);
 
 
     // Mensagem final
@@ -737,7 +737,7 @@ conteudo.innerHTML =`
 
         `);
 
-    }, 31000);
+    }, 50000);
 
 
     // Fade final
@@ -747,7 +747,11 @@ conteudo.innerHTML =`
 
         musica2.volume = 0.65;
 
-    }, 40000);
+    }, 60000);
+
+    if(linhas.style.opacity === 1){
+        musica2.volume = 0.65;
+    }
 
     
 
