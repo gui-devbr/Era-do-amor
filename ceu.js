@@ -34,8 +34,8 @@ const linhas = [
 // MÚSICAS
 // =====================================
 
-const musica1 = new Audio("Home.mp3");
-const musica2 = new Audio("Ludo.mp3");
+const musica1 = new Audio("Nostagia.mp3");
+const musica2 = new Audio("Coldplay.mp3");
 
 musica1.volume = 0.5;
 musica2.volume = 0.1;
@@ -748,6 +748,8 @@ conteudo.innerHTML =`
         musica2.volume = 0.65;
 
     }, 40000);
+
+    
 
 }
 

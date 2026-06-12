@@ -1,4 +1,4 @@
-let tempot = new Date(2026, 6, 12, 21, 0, 0);
+let tempot = new Date(2026, 5, 12, 22, 30, 0)
 
 let music = new Audio("Mine.mp3")
 
