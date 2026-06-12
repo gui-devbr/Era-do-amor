@@ -1,4 +1,4 @@
-let tempot = new Date(2026,5,12,20,0, 0)
+let tempot = new Date(2026, 5, 12, 21, 0, 0);
 
 let music = new Audio("Mine.mp3")
 
@@ -22,20 +22,29 @@ function atualizartempo(){
 
     let distance = futuro - now;
 
-    if(distance <= 0){
-
+   if(distance <= 0){
         clearInterval(contador);
 
-        document.getElementById("timer").innerHTML = `
-        ❤️
-        `;
+        const conteiner = document.getElementById("conteiner");
+        const viagem = document.getElementById("viagem-tempo");
 
+        // 1. Faz o timer sumir suavemente
+        conteiner.classList.add("esconder");
+
+        // 2. Após 1 segundo (fade-out do timer), ativa o efeito "warp speed"
+        setTimeout(() => {
+            conteiner.style.display = "none"; // Tira o timer do caminho
+            viagem.classList.add("ativo");
+        }, 1000);
+
+        // 3. Após 5 segundos "viajando no espaço", troca para a página das estrelas
         setTimeout(() => {
             window.location.href = "https://gui-devbr.github.io/Era-do-amor/ceu.html";
-        }, 3000);
+        }, 6000); // 1s do fade + 5s de viagem
 
         return;
     }
+
 
     let days = Math.floor(distance / (1000 * 60 * 60 * 24));
 

@@ -153,3 +153,63 @@ font-size:2vh;
 }
 
 
+/* Container principal para o efeito de "Entrar no Espaço" */
+#viagem-tempo {
+    position: fixed; /* Mudado de absolute para fixed para travar na tela toda */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #1e3a8a, #030712); 
+    z-index: 98;
+    overflow: hidden;
+    perspective: 1000px; /* ATENÇÃO: Isso cria o efeito de profundidade 3D */
+}
+
+/* Classe que ativa a viagem */
+#viagem-tempo.ativo {
+    display: flex;
+}
+
+/* Estilo para os rastros de luz */
+.rastros {
+    position: absolute;
+    height: 2px; /* Grosso o suficiente para aparecer brilhando */
+    background: linear-gradient(to right, transparent, white); /* Dá o visual de rastro de cometa */
+    opacity: 0;
+    box-shadow: 0 0 10px #ffffff, 0 0 20px #8a2be2; /* Brilho neon misturando com o roxo do fundo */
+    transform-origin: left center; 
+}
+
+/* Animação que faz os rastros explodirem em direção à tela */
+@keyframes warp {
+    0% {
+        width: 10px;
+        transform: rotate(var(--rotacao)) translateX(0px) scaleX(1);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1; /* Surge rápido */
+    }
+    100% {
+        width: 400px; /* Estica a linha como velocidade da luz */
+        transform: rotate(var(--rotacao)) translateX(300px) scaleX(2); /* Joga para longe do centro */
+        opacity: 0; /* Some nas bordas */
+    }
+}
+
+/* Configuramos as rotações usando variáveis CSS limpas para aplicar no Keyframes */
+#rastro1 { animation: warp 0.7s infinite linear; --rotacao: 0deg; animation-delay: 0.0s; }
+#rastro2 { animation: warp 0.9s infinite linear; --rotacao: 60deg; animation-delay: 0.15s; }
+#rastro3 { animation: warp 0.6s infinite linear; --rotacao: 120deg; animation-delay: 0.3s; }
+#rastro4 { animation: warp 0.8s infinite linear; --rotacao: 180deg; animation-delay: 0.1s; }
+#rastro5 { animation: warp 0.7s infinite linear; --rotacao: 240deg; animation-delay: 0.4s; }
+#rastro6 { animation: warp 0.9s infinite linear; --rotacao: 300deg; animation-delay: 0.2s; }
+
+
+
+
+
