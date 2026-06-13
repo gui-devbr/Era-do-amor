@@ -30,14 +30,16 @@ const linhas = [
 ];
 
 // =====================================
-// MÚSICAS
+// MÚSICAS E EFEITOS
 // =====================================
 
 const musica1 = new Audio("Nostagia.mp3");
 const musica2 = new Audio("Coldplay.mp3");
+const somTransicao = new Audio("Ludo.mp3");
 
 musica1.volume = 0.5;
 musica2.volume = 0.1;
+somTransicao.volume = 0.5;
 
 musica1.loop = true;
 musica2.loop = true;
@@ -128,6 +130,12 @@ function apagarEstrelas(){
 
 }
 
+function tocarSomTransicao(){
+    // Reseta o áudio para o início caso ele já esteja tocando, evitando duplicar ou dar eco
+    somTransicao.currentTime = 0;
+    somTransicao.play().catch(e => console.log("Áudio bloqueado pelo navegador antes da interação."));
+}
+
 
 // =====================================
 // INICIAR
@@ -207,8 +215,7 @@ function Arquivo01(){
     },1000);
 
     mostrarLinha(0);
-
-    let audioNext = new Audio('Ludo.mp3'); audioNext.volume = 0.5; audioNext.play();
+    tocarSomTransicao();
     ativarEstrela(1);
 
 }
@@ -262,8 +269,7 @@ function Arquivo02(){
     },1000);
 
     mostrarLinha(1);
-
-    let audioNext = new Audio('Ludo.mp3'); audioNext.volume = 0.5; audioNext.play();
+    tocarSomTransicao();
     ativarEstrela(2);
 
 }
@@ -319,8 +325,7 @@ function Arquivo03(){
     },1000);
 
     mostrarLinha(2);
-
-    let audioNext = new Audio('Ludo.mp3'); audioNext.volume = 0.5; audioNext.play();
+    tocarSomTransicao();
     ativarEstrela(3);
 
 }
@@ -382,8 +387,7 @@ function Arquivo04(){
     },1000);
 
     mostrarLinha(3);
-
-    let audioNext = new Audio('Ludo.mp3'); audioNext.volume = 0.5; audioNext.play();
+    tocarSomTransicao();
     ativarEstrela(4);
 
 }
@@ -444,8 +448,7 @@ function Arquivo05(){
     },1000);
 
     mostrarLinha(4);
-
-    let audioNext = new Audio('Ludo.mp3'); audioNext.volume = 0.5; audioNext.play();
+    tocarSomTransicao();
     ativarEstrela(5);
 
 }
@@ -503,8 +506,7 @@ function Arquivo06(){
     },1000);
 
     mostrarLinha(5);
-
-    let audioNext = new Audio('Ludo.mp3'); audioNext.volume = 0.5; audioNext.play();
+    tocarSomTransicao();
     ativarEstrela(6);
 
 }
@@ -650,7 +652,7 @@ function Arquivodeencerramento() {
     }, 35000);
 
 
-    // Céu muda de col
+    // Céu muda de cor
     setTimeout(() => {
         document.body.style.background =
         "radial-gradient(circle at center, #1e3a8a, #030712)";
@@ -699,41 +701,34 @@ function Arquivodeencerramento() {
     }, 50000);
 
 
-    // AS SUAS FOTOS ENTRAN AQUI (60 segundos)
+    // Carrossel de fotos e vídeo
     setTimeout(() => {
         trocarTexto(`
             <div style="width: 100%; max-width: 300px; margin: 0 auto; display: flex; flex-direction: column; align-items: center;">
                 <h2 style="font-size: 1.3rem; margin: 0 0 10px 0; height: 30px; line-height: 30px; text-shadow: 0 0 10px rgba(255,255,255,0.5);">Nossas Memórias ✨</h2>
                 <div class="slideshow-interno">
                     <img src="foto1.jpeg" alt="foto1" class="midia-memoria ativa">
-                    <img src="foto0.jpeg" alt="foto0" class="midia-memoria">
+                    <img src="foto0.jpeg" alt="foto2" class="midia-memoria">
                     <img src="foto3.jpeg" alt="foto3" class="midia-memoria">
                     <img src="foto4.jpeg" alt="foto4" class="midia-memoria">
                     <img src="foto5.jpeg" alt="foto5" class="midia-memoria">
-
-                    <video src="Especial.mp4" class="midia-memoria" playsinline></video>
-                
+                    <video src="Especial.mp4" class="midia-memoria" style="object-fit: contain !important; animation: none !important; transform: none !important; transition: none !important;" playsinline></video>
                 </div>
             </div>
         `);
 
-        // Espera o efeito de fade do trocarTexto acabar e inicia o giro das fotos
         setTimeout(iniciarSlideshowInterno, 1200);
-
         musica2.volume = 0.65;
     }, 60000);
 
-    // O site apaga completamente bem depois (95 segundos)
+    // O site apaga completamente bem depois (120 segundos) para dar tempo de ver tudo
     setTimeout(() => {
         conteudo.style.opacity = "0"
-    }, 95000);
+    }, 120000);
 
 }
 
 
-// =====================================
-// FUNÇÕES DO CARROSSEL E LINHAS
-// =====================================
 // =====================================
 // FUNÇÕES DO CARROSSEL E LINHAS
 // =====================================
@@ -743,53 +738,37 @@ function iniciarSlideshowInterno() {
     if (midias.length === 0) return;
     
     let indiceAtual = 0;
-
-    // Criamos o temporizador de 3.5 segundos para as fotos
     let intervalo = setInterval(proximaMidia, 3500);
 
     function proximaMidia() {
-        // Remove a classe ativa da mídia antiga
         midias[indiceAtual].classList.remove('ativa');
         
-        // Se a mídia antiga era o vídeo, garante que ele pare
         if (midias[indiceAtual].tagName === 'VIDEO') {
             midias[indiceAtual].pause();
         }
 
-        // Avança para o próximo índice
         indiceAtual = (indiceAtual + 1) % midias.length;
-
-        // Ativa a nova mídia
         midias[indiceAtual].classList.add('ativa');
 
-        // SE A NOVA MÍDIA FOR O VÍDEO:
         if (midias[indiceAtual].tagName === 'VIDEO') {
-            // 1. Para a troca automática de fotos para o vídeo passar inteiro
             clearInterval(intervalo);
-            
-            // 2. Abaixa bem a música do Coldplay de fundo para não dar choque de áudio
             musica2.volume = 0.05; 
             
-            // 3. TRUQUE DO PLAY AUTOMÁTICO: Começa mudo para o navegador aceitar, dá play e solta o som
             midias[indiceAtual].muted = true;
             midias[indiceAtual].currentTime = 0;
             
             midias[indiceAtual].play().then(() => {
-                // Assim que o play funciona, o JS ativa o som do vídeo de volta
                 midias[indiceAtual].muted = false;
-                midias[indiceAtual].volume = 1.0; // Volume do seu vídeo no máximo
+                midias[indiceAtual].volume = 1.0; 
             }).catch(error => {
                 console.log("Erro ao tentar rodar o vídeo: ", error);
             });
 
-            // 4. Quando o vídeo terminar 100% sozinho, ele limpa e reseta o looping do início
             midias[indiceAtual].onended = function() {
-                musica2.volume = 0.65; // Volta o volume da música do site
+                musica2.volume = 0.65; 
                 midias[indiceAtual].classList.remove('ativa');
                 indiceAtual = 0;
                 midias[indiceAtual].classList.add('ativa');
-                
-                // Reinicia o temporizador das fotos para rodar tudo de novo
                 intervalo = setInterval(proximaMidia, 3500);
             };
         }
