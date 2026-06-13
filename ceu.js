@@ -625,8 +625,8 @@ function Arquivodeencerramento() {
 
         mostrarLinha(1);
         ativarEstrela(2);
-conteudo.innerHTML =`
-        <h2>Analisando sinais...</h2>`
+        trocarTexto(`<h2> analisando sianis... </h2>`)
+
 
     }, 20000);
 
@@ -749,7 +749,7 @@ conteudo.innerHTML =`
 
     }, 60000);
 
-    if(linhas.style.opacity === 1){
+    if(linhas[5].style.opacity === 1){
         musica2.volume = 0.65;
     }
 
