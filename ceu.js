@@ -1,4 +1,3 @@
-
 // =====================================
 // ESTRELAS PRINCIPAIS
 // =====================================
@@ -68,7 +67,6 @@ for(let i = 0; i < 40; i++){
 // =====================================
 // FUNÇÕES AUXILIARES
 // =====================================
-
 
 function fadeOut(){
     conteudo.style.opacity = "0";
@@ -210,6 +208,7 @@ function Arquivo01(){
 
     mostrarLinha(0);
 
+    let audioNext = new Audio('Ludo.mp3'); audioNext.volume = 0.5; audioNext.play();
     ativarEstrela(1);
 
 }
@@ -264,6 +263,7 @@ function Arquivo02(){
 
     mostrarLinha(1);
 
+    let audioNext = new Audio('Ludo.mp3'); audioNext.volume = 0.5; audioNext.play();
     ativarEstrela(2);
 
 }
@@ -320,6 +320,7 @@ function Arquivo03(){
 
     mostrarLinha(2);
 
+    let audioNext = new Audio('Ludo.mp3'); audioNext.volume = 0.5; audioNext.play();
     ativarEstrela(3);
 
 }
@@ -382,6 +383,7 @@ function Arquivo04(){
 
     mostrarLinha(3);
 
+    let audioNext = new Audio('Ludo.mp3'); audioNext.volume = 0.5; audioNext.play();
     ativarEstrela(4);
 
 }
@@ -443,6 +445,7 @@ function Arquivo05(){
 
     mostrarLinha(4);
 
+    let audioNext = new Audio('Ludo.mp3'); audioNext.volume = 0.5; audioNext.play();
     ativarEstrela(5);
 
 }
@@ -501,6 +504,7 @@ function Arquivo06(){
 
     mostrarLinha(5);
 
+    let audioNext = new Audio('Ludo.mp3'); audioNext.volume = 0.5; audioNext.play();
     ativarEstrela(6);
 
 }
@@ -539,7 +543,7 @@ function Arquivo07(){
 
         <br><br>
 
-        Mas nenhuma explicação científica foi capaz de explicar completamente o fenômeno observado.
+        But nenhuma explicação científica foi capaz de explicar completamente o fenômeno observado.
 
         <br><br>
 
@@ -592,203 +596,183 @@ function Arquivodeencerramento() {
 
     // Sinal final
     setTimeout(() => {
-
         trocarTexto(`
         <h2>Sinal final detectado...</h2>
         `);
-
     }, 2000);
 
 
     // Montando constelação
     setTimeout(() => {
-
         mostrarLinha(0);
-
         ativarEstrela(0);
         ativarEstrela(1);
-
     }, 10000);
 
 
     // Constelação desconhecida
     setTimeout(() => {
-
         trocarTexto(`
         <h2>Constelação desconhecida registrada...</h2>
         `);
-
     }, 15000);
 
 
     setTimeout(() => {
-
         mostrarLinha(1);
         ativarEstrela(2);
-        trocarTexto(`<h2> analisando sianis... </h2>`)
-
-
+        trocarTexto(`<h2>Analisando sinais...</h2>`)
     }, 20000);
 
 
     setTimeout(() => {
-
         mostrarLinha(2);
         ativarEstrela(3);
-
     }, 23000);
 
 
     setTimeout(() => {
-
         mostrarLinha(3);
         ativarEstrela(4);
-
     }, 26000);
 
 
     setTimeout(() => {
-
         mostrarLinha(4);
         ativarEstrela(5);
-
     }, 30000);
 
 
     setTimeout(() => {
-
         mostrarLinha(5);
         mostrarLinha(6);
-
         ativarEstrela(6);
-
     }, 35000);
 
 
-    // Céu muda de cor
+    // Céu muda de col
     setTimeout(() => {
-
         document.body.style.background =
         "radial-gradient(circle at center, #1e3a8a, #030712)";
-
     }, 35000);
 
 
     // Todas piscando
     setTimeout(() => {
-
         estrelas.forEach(estrela => {
-
             estrela.classList.add("ativa");
-
         });
-
     }, 38000);
 
 
     // Efeito especial final
     setTimeout(() => {
-
         estrelas.forEach(estrela => {
-
             estrela.classList.add("final");
-
         });
-
     }, 41000);
 
 
     // Constelação Destinada
     setTimeout(() => {
-
         trocarTexto(`
-
         <h1>Constelação Destinada</h1>
-
         <p>
         Registro oficialmente concluído.
         </p>
-
         `);
-
     }, 42000);
 
 
     // Mensagem final
     setTimeout(() => {
-
         trocarTexto(`
-
         <h1>❤️</h1>
-
         <p>
-
         Entre bilhões de estrelas no universo...
-
         <br><br>
-
         Eu ainda escolheria você.
-
         <br><br><br>
-
         Feliz Dia dos Namorados.
-
         </p>
-
         `);
-
     }, 50000);
 
 
-    // Fade final
+    // AS SUAS FOTOS ENTRAN AQUI (60 segundos)
     setTimeout(() => {
+        trocarTexto(`
+            <div style="width: 100%; max-width: 300px; margin: 0 auto; display: flex; flex-direction: column; align-items: center;">
+                <h2 style="font-size: 1.3rem; margin: 0 0 10px 0; height: 30px; line-height: 30px; text-shadow: 0 0 10px rgba(255,255,255,0.5);">Nossas Memórias ✨</h2>
+                <div class="slideshow-interno">
+                    <img src="foto1.jpeg" alt="foto1" class="midia-memoria ativa">
+                    <img src="foto0.jpeg" alt="foto0" class="midia-memoria">
+                    <img src="foto3.jpeg" alt="foto3" class="midia-memoria">
+                    <img src="foto4.jpeg" alt="foto4" class="midia-memoria">
+                    <img src="foto5.jpeg" alt="foto5" class="midia-memoria">
 
-        conteudo.style.opacity = "0";
+                    <video src="Especial.mp4" class="midia-memoria" playsinline></video>
+                
+                </div>
+            </div>
+        `);
+
+        // Espera o efeito de fade do trocarTexto acabar e inicia o giro das fotos
+        setTimeout(iniciarSlideshowInterno, 1200);
 
         musica2.volume = 0.65;
-
     }, 60000);
 
-    if(linhas[5].style.opacity === 1){
-        musica2.volume = 0.65;
-    }
-
-    
+    // O site apaga completamente bem depois (95 segundos)
+    setTimeout(() => {
+        conteudo.style.opacity = "0"
+    }, 95000);
 
 }
 
-// Função para desenhar a linha exatamente entre duas estrelas
+
+// =====================================
+// FUNÇÕES DO CARROSSEL E LINHAS
+// =====================================
+
+function iniciarSlideshowInterno() {
+    const midias = document.querySelectorAll('.midia-memoria');
+    if (midias.length === 0) return;
+    
+    let indiceAtual = 0;
+
+    setInterval(() => {
+        midias[indiceAtual].classList.remove('ativa');
+        indiceAtual = (indiceAtual + 1) % midias.length;
+        midias[indiceAtual].classList.add('ativa');
+    }, 3500); 
+}
+
 function ajustarLinha(idLinha, idEstrelaA, idEstrelaB) {
     const linha = document.getElementById(idLinha);
     const estA = document.getElementById(idEstrelaA).getBoundingClientRect();
     const estB = document.getElementById(idEstrelaB).getBoundingClientRect();
 
-    // Encontra o centro exato de cada estrela
     const x1 = estA.left + estA.width / 2;
     const y1 = estA.top + estA.height / 2;
     const x2 = estB.left + estB.width / 2;
     const y2 = estB.top + estB.height / 2;
 
-    // Aplica as coordenadas diretamente nos eixos do SVG
     linha.setAttribute('x1', x1);
     linha.setAttribute('y1', y1);
     linha.setAttribute('x2', x2);
     linha.setAttribute('y2', y2);
 }
 
-// Mapeamento de conexões (Qual linha liga qual estrela)
 function atualizarTodasAsLinhas() {
-    ajustarLinha('linha1', 'estrela1', 'estrela2'); // Linha 1 liga Estrela 1 à 2
-    ajustarLinha('linha2', 'estrela1', 'estrela3'); // Linha 2 liga Estrela 1 à 3
-    ajustarLinha('linha3', 'estrela2', 'estrela4'); // Linha 3 liga Estrela 2 à 4
-    ajustarLinha('linha4', 'estrela3', 'estrela5'); // Linha 4 liga Estrela 3 à 5
-    ajustarLinha('linha5', 'estrela4', 'estrela6'); // Linha 5 liga Estrela 4 à 6
-    ajustarLinha('linha6', 'estrela5', 'estrela7'); // Linha 6 liga Estrela 5 à 7
-    ajustarLinha('linha7', 'estrela6', 'estrela7'); // Linha 7 fecha a base entre 6 e 7
+    ajustarLinha('linha1', 'estrela1', 'estrela2'); 
+    ajustarLinha('linha2', 'estrela1', 'estrela3'); 
+    ajustarLinha('linha3', 'estrela2', 'estrela4'); 
+    ajustarLinha('linha4', 'estrela3', 'estrela5'); 
+    ajustarLinha('linha5', 'estrela4', 'estrela6'); 
+    ajustarLinha('linha6', 'estrela5', 'estrela7'); 
+    ajustarLinha('linha7', 'estrela6', 'estrela7'); 
 }
 
-// Executa o cálculo assim que a página carrega
 window.addEventListener('load', atualizarTodasAsLinhas);
-
-// Recalcula automaticamente se a pessoa girar o celular ou mudar o tamanho da janela!
 window.addEventListener('resize', atualizarTodasAsLinhas);

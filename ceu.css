@@ -63,6 +63,40 @@ p {
     font-size: clamp(0.95rem, 1.5vw, 1.1rem); /* Ajustado para leitura leve */
 }
 
+/*====== Imagens/videos =======*/
+
+/* Container das fotos centralizado no meio das estrelas */
+/* Container das fotos centralizado no meio das estrelas */
+.slideshow-interno {
+    position: relative;
+    width: 260px;   /* Tamanho fixo para não empurrar as coisas */
+    height: 260px;  /* Altura fixa idêntica */
+    margin: 15px auto 0 auto;
+    display: block; /* Mudado para block para travar o fluxo vertical */
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05); /* Fundo sutil caso a foto demore a carregar */
+    border-radius: 12px;
+}
+
+.midia-memoria {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.midia-memoria.ativa {
+    opacity: 1;
+    transform: scale(1);
+}
+
 button {
     margin-top: 20px;
     padding: 12px 24px; /* Levemente menor e mais elegante */
