@@ -545,7 +545,7 @@ function Arquivo07(){
 
         <br><br>
 
-        But nenhuma explicação científica foi capaz de explicar completamente o fenômeno observado.
+        Mas nenhuma explicação científica foi capaz de explicar completamente o fenômeno observado.
 
         <br><br>
 
