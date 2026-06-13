@@ -734,6 +734,9 @@ function Arquivodeencerramento() {
 // =====================================
 // FUNÇÕES DO CARROSSEL E LINHAS
 // =====================================
+// =====================================
+// FUNÇÕES DO CARROSSEL E LINHAS
+// =====================================
 
 function iniciarSlideshowInterno() {
     const midias = document.querySelectorAll('.midia-memoria');
@@ -741,11 +744,56 @@ function iniciarSlideshowInterno() {
     
     let indiceAtual = 0;
 
-    setInterval(() => {
+    // Criamos o temporizador de 3.5 segundos para as fotos
+    let intervalo = setInterval(proximaMidia, 3500);
+
+    function proximaMidia() {
+        // Remove a classe ativa da mídia antiga
         midias[indiceAtual].classList.remove('ativa');
+        
+        // Se a mídia antiga era o vídeo, garante que ele pare
+        if (midias[indiceAtual].tagName === 'VIDEO') {
+            midias[indiceAtual].pause();
+        }
+
+        // Avança para o próximo índice
         indiceAtual = (indiceAtual + 1) % midias.length;
+
+        // Ativa a nova mídia
         midias[indiceAtual].classList.add('ativa');
-    }, 3500); 
+
+        // SE A NOVA MÍDIA FOR O VÍDEO:
+        if (midias[indiceAtual].tagName === 'VIDEO') {
+            // 1. Para a troca automática de fotos para o vídeo passar inteiro
+            clearInterval(intervalo);
+            
+            // 2. Abaixa bem a música do Coldplay de fundo para não dar choque de áudio
+            musica2.volume = 0.05; 
+            
+            // 3. TRUQUE DO PLAY AUTOMÁTICO: Começa mudo para o navegador aceitar, dá play e solta o som
+            midias[indiceAtual].muted = true;
+            midias[indiceAtual].currentTime = 0;
+            
+            midias[indiceAtual].play().then(() => {
+                // Assim que o play funciona, o JS ativa o som do vídeo de volta
+                midias[indiceAtual].muted = false;
+                midias[indiceAtual].volume = 1.0; // Volume do seu vídeo no máximo
+            }).catch(error => {
+                console.log("Erro ao tentar rodar o vídeo: ", error);
+            });
+
+            // 4. Quando o vídeo terminar 100% sozinho, ele limpa e reseta o looping do início
+            midias[indiceAtual].onended = function() {
+                musica2.volume = 0.65; // Volta o volume da música do site
+                midias[indiceAtual].classList.remove('ativa');
+                indiceAtual = 0;
+                midias[indiceAtual].classList.add('ativa');
+                
+                // Reinicia o temporizador das fotos para rodar tudo de novo
+                intervalo = setInterval(proximaMidia, 3500);
+            };
+        }
+    }
 }
 
 function ajustarLinha(idLinha, idEstrelaA, idEstrelaB) {
